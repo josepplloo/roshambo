@@ -1,14 +1,9 @@
-.App {
+.app {
   text-align: center;
+  font: small-caps bold 24px/1 sans-serif;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
+.app__header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -19,15 +14,92 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  text-shadow: 2px 2px 2px black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.players__container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.players__text {  
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: #282c34;
+  font: inherit;
+  height: 70px;
+  margin: 20px;
+  text-align: center;  
+  width: 200px;
+ }
+
+.players__text::placeholder {  
+  text-align: center;  
+}
+
+.players__button {
+ border: 2px solid transparent;
+ border-radius: 4px;
+ color: #282c34;
+ font: inherit;
+}
+
+.players__button:hover {
+  border: 2px solid black;
+}
+
+.app__play {
+  background-color: #282c50;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.app__round {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score__log {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__move-select {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: #282c34;
+  font: inherit;
+  height: 70px;
+  margin: 20px;
+  width: 200px;
+}
+
+.app__winner {
+  background-color: #282c90;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }

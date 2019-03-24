@@ -14,30 +14,39 @@ export default class App extends Component {
     this.state = {
       player1: '',
       player2: '', 
-      history: [{
-        games: Array(5).fill(''),
-      }],
     }
   }
-
+  /**
+   * Set the player 1 in the state
+   * @param {String} player1 
+   */
   handlePlayer1(player1) {
     this.setState({player1});
   }
 
+  /**
+   * Set the player 2 in the state
+   * @param {String} player2
+   */
   handlePlayer2(player2) {
     this.setState({player2});
   }
 
-  arePlayersReady() {
+  /**
+   * Validates the  players names to redirect
+   * to the others views 
+   * @returns true if playes names are valid
+   */
+  validatePlayers() {
     const state = this.state;
-    
-    if ((state.player1.trim().length < 1) ||
-      (state.player2.trim().length < 1) ) {
-        return false;
-      } else {
-        return true;
-      }
+    const arePlayersReady = ((state.player1.trim().length > 1) ||
+    (state.player2.trim().length > 1) );
+
+    return arePlayersReady ? true : false;
+   
   }
+
+//Routing functions ***
 
   welcome() {
     return (
@@ -51,11 +60,9 @@ export default class App extends Component {
     );
   }
 
-  game(props) {
-    console.log(props);
-    
+  game(props) {    
     return (
-    <div className="app__play">
+    <div>
       <Game player1={props.player1} player2={props.player2}/>
       <Link replace to="/winner">Winner</Link>
     </div>
@@ -82,6 +89,8 @@ export default class App extends Component {
     )
   }
 
+//*** End of touting functions
+
   render() {
     return (
       <Router>
@@ -89,7 +98,7 @@ export default class App extends Component {
           <Switch>
             <Route exact path="/" render={() => this.welcome()}/>
             <Route path="/game" render={() =>( 
-              this.arePlayersReady() ?
+              this.validatePlayers() ?
                 this.game(this.state)
               : <Redirect to="/" /> )
               }/>

@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import './App.css';
-import Welcome from './Welcome';
-import Game from './Game'
-import Winner from './Winner';
+import React, { Component, Fragment } from 'react';
 import  {BrowserRouter as Router,
-Route, Switch, Link, NavLink, Redirect} from "react-router-dom";
-import Podium from './Podium';
-
+  Route, Switch, Link, Redirect} from "react-router-dom";
+  
+import Welcome from './Welcome/Welcome';
+import Game from './Game/Game'
+import Winner from './Winner/Winner';
+import Podium from './Podium/Podium';
+  
+import './App.scss';
 
 export default class App extends Component {
   constructor(props) {
@@ -39,8 +40,8 @@ export default class App extends Component {
    */
   validatePlayers() {
     const state = this.state;
-    const arePlayersReady = ((state.player1.trim().length > 1) ||
-    (state.player2.trim().length > 1) );
+    const arePlayersReady = ((state.player1.trim().length > 0) &&
+    (state.player2.trim().length > 0) );
 
     return arePlayersReady ? true : false;
    
@@ -50,41 +51,45 @@ export default class App extends Component {
 
   welcome() {
     return (
-      <div className="app__header">
+      <div className="welcome__container">
         <Welcome 
           onPlayer1change={(player1) => this.handlePlayer1(player1)}
-          onPlayer2change={(player2) => this.handlePlayer2(player2)}
+          onPlayer2change={(player2) => this.handlePlayer2(player2)} 
         />
-        <NavLink to="/game">Start Game!</NavLink> 
+        <div className="winner__links-container">
+          <span className="welcome__links"><Link to="/game">Start Game!</Link></span> 
+          <span className="welcome__links"><Link to="/podium">Game Scores!</Link></span> 
+        </div>
       </div>  
     );
   }
 
   game(props) {    
     return (
-    <div>
+    <div className="game__container">
       <Game player1={props.player1} player2={props.player2}/>
-      <Link replace to="/winner">Winner</Link>
+      <span className="game__links"><Link replace to="/winner">Winner</Link></span>
     </div>
-      
     )
   }
 
   winner() {
     return (
-      <div>
+      <div className="winner__container">
         <Winner />
-        <Link replace to="/">Play again!</Link>
-        <Link replace to="/podium">See the scores</Link>
-      </div>
+        <div className="winner__links-container">
+          <span className="winner__links"><Link replace to="/">Play again!</Link></span>
+          <span className="winner__links"><Link replace to="/podium">See the scores</Link></span>
+        </div>
+        </div>
     )
   }
 
   podium() {
     return (
-      <div>
+      <div className="podium__container">
         <Podium />
-        <Link replace to="/">Play again!</Link>
+        <span className="podium__links"><Link replace to="/">Play again!</Link></span>
       </div>
     )
   }
@@ -94,7 +99,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <Fragment>
           <Switch>
             <Route exact path="/" render={() => this.welcome()}/>
             <Route path="/game" render={() =>( 
@@ -106,7 +111,7 @@ export default class App extends Component {
             <Route path="/podium" render={() => this.podium()}/>
             <Route render={() => <h1>404 Page not found</h1>}/>
           </Switch>
-        </div>
+        </Fragment>
       </Router>
     );
   }

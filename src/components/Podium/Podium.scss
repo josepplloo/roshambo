@@ -1,0 +1,33 @@
+.podium__container {
+  background-color: #282cff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.podium__table {
+  font: inherit;
+}
+
+.podium__links {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #0079C6;
+
+  &:hover {
+    border: 2px solid black;
+  }
+
+  & a {
+    color: white;
+    display: block;
+    font: inherit;
+    text-decoration: none;
+    padding: 10px 56px;
+
+  }
+}

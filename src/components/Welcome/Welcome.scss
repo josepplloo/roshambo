@@ -1,0 +1,59 @@
+.welcome__title {
+  font: 1.9em sans-serif;
+}
+
+.welcome__container {
+  background-color: #282c34;
+  align-content: center;
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.welcome__text {  
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: #282c50;
+  font: inherit;
+  height: 60px;
+  margin: 20px;
+  text-align: center;  
+  width: 200px;
+  
+  &::placeholder {  
+    text-align: center;  
+  }
+}
+
+.players__vs {
+  text-shadow: 2px 2px 2px black;
+}
+.welcome__links-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.welcome__links {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: #0079C6;
+  margin: 0 5px;
+  
+  &:hover {
+    border: 2px solid black;
+  }
+
+  & a {
+    color: white;
+    display: block;
+    font: inherit;
+    text-decoration: none;
+    padding: 5px 20px;
+
+  }
+}

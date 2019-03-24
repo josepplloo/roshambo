@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
+import './Welcome.scss'
 
 export default class Welcome extends React.Component {
 
@@ -23,21 +24,21 @@ export default class Welcome extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>Welcome to the Game.</h1>
-        <div className="players__container">
-          <input className="players__text" 
+      <Fragment>
+        <h1 className="welcome__title">Welcome to the Game.</h1>
+        
+          <input className="welcome__text" 
             type="text" 
             placeholder="Player 1" 
             onChange={(event) => this.text1HandleChange(event)}
           />
-          <p>VS</p>
-          <input className="players__text" 
+          <p className="welcome__vs">VS</p>
+          <input className="welcome__text" 
             type="text" 
             placeholder="Player 2" 
             onChange={(event) => this.text2HandleChange(event)}/>
-        </div>
-      </div>
+        
+      </Fragment>  
     )
   }
 }

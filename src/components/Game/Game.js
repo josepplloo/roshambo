@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+
+import './Game.scss';
 
 export default class Game extends React.Component {
   constructor(props) {
@@ -59,7 +61,7 @@ export default class Game extends React.Component {
       return "There is a draw!";
     }
 
-    // look for a winner e.g 
+    //look for a winner e.g 
     //given that gameRules["Rock"]["Scissor"]
     //return True, Player 1 wins!
     if( gameRules[movements[0]][movements[1]] ) {
@@ -94,39 +96,35 @@ export default class Game extends React.Component {
 
     if (currentRound > 0) {
        allMatches =  matchResults.map((result, index) => (
-        <li key={result+index}>{index+1} - {result}</li>
+        <li key={result+index}> {result} </li>
       ))
     } else {
        allMatches = <li>No matches yet.</li>
     }
 
     return (
-      <div className="app__play">
-        <article className="app__round"> 
+      <Fragment>
+        <article className="game__match"> 
           <h1>Round {currentRound+1}</h1>
           <h3>{ this.state.xIsNext ? player1 : player2} is your turn!</h3>
-          <select className="app__move-select" 
+          <select className="game__select" 
             name="move" id="move"
             onChange={(event) => this.handleMovement(event)}
             defaultValue="Your move"
           >
-            <option value="Your move" disabled>Your Move</option>
+            <option value="Your move" disabled>Pick one</option>
             {moves.map((move) => (
               <option key={move} value={move}>{move}</option>
             ))}
           </select>
         </article>
-        <aside className="app__score">
-          <h3>Score</h3>
-          <div className="score__log">
-            <h5>Round</h5> -
-            <h5>Winner</h5>
-          </div>
-          <ul>
+        <aside className="game__log">
+          <h3>Score Log</h3>
+          <ol>
               {allMatches}
-          </ul>
+          </ol>
         </aside>
-      </div>
+      </Fragment>
     );
   }
 }

@@ -15,6 +15,7 @@ export default class App extends Component {
     this.state = {
       player1: '',
       player2: '', 
+      gameover: false,
     }
   }
   /**
@@ -34,6 +35,14 @@ export default class App extends Component {
   }
 
   /**
+   * Set true if the game over
+   * @param {Bolean} gameover
+   */
+  handleGameOver(gameover) {
+    this.setState({gameover});
+  }
+
+  /**
    * Validates the  players names to redirect
    * to the others views 
    * @returns true if playes names are valid
@@ -44,7 +53,6 @@ export default class App extends Component {
     (state.player2.trim().length > 0) );
 
     return arePlayersReady ? true : false;
-   
   }
 
 //Routing functions ***
@@ -57,8 +65,12 @@ export default class App extends Component {
           onPlayer2change={(player2) => this.handlePlayer2(player2)} 
         />
         <div className="winner__links-container">
-          <span className="welcome__links"><Link to="/game">Start Game!</Link></span> 
-          <span className="welcome__links"><Link to="/podium">Game Scores!</Link></span> 
+          <span className="welcome__links">
+            <Link to="/game">Start Game!</Link>
+          </span> 
+          <span className="welcome__links">
+            <Link to="/podium">Game Scores!</Link>
+          </span> 
         </div>
       </div>  
     );
@@ -67,8 +79,15 @@ export default class App extends Component {
   game(props) {    
     return (
     <div className="game__container">
-      <Game player1={props.player1} player2={props.player2}/>
-      <span className="game__links"><Link replace to="/winner">Winner</Link></span>
+      <Game player1={props.player1} 
+        player2={props.player2} 
+        onGameOver={gameover => this.handleGameOver(gameover)}/>
+      {this.state.gameover? 
+        <span className="game__links">
+          <Link replace to="/winner">Results</Link>
+        </span> : 
+        <span></span>
+      }
     </div>
     )
   }
@@ -78,8 +97,12 @@ export default class App extends Component {
       <div className="winner__container">
         <Winner />
         <div className="winner__links-container">
-          <span className="winner__links"><Link replace to="/">Play again!</Link></span>
-          <span className="winner__links"><Link replace to="/podium">See the scores</Link></span>
+          <span className="winner__links">
+            <Link replace to="/">Play again!</Link>
+          </span>
+          <span className="winner__links">
+            <Link replace to="/podium">See the scores</Link>
+          </span>
         </div>
         </div>
     )
@@ -89,7 +112,9 @@ export default class App extends Component {
     return (
       <div className="podium__container">
         <Podium />
-        <span className="podium__links"><Link replace to="/">Play again!</Link></span>
+        <span className="podium__links">
+          <Link replace to="/">Play again!</Link>
+        </span>
       </div>
     )
   }

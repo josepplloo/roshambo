@@ -25,7 +25,12 @@
   width: 30vw;
 }
 
+.game__status {
+  max-width: 130px
+}
+
 .game__log {
+  min-width: 130px;
   display: flex;
   flex-direction: column;
   align-items: center;

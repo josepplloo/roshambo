@@ -2,6 +2,13 @@ import React, {Fragment} from 'react'
 import './Winner.scss'
 
 export default class Winner extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gameover: props.gameover,
+    }
+  }
+    
   render() {
     return (
       
@@ -30,7 +37,7 @@ export default class Winner extends React.Component {
             <li className="bg__bubble bg__bubble9"></li>
           </ul>
         </div>
-        <h1>The winner was Player :   </h1>
+        <h1>The winner was Player : {this.state.gameover}  </h1>
       </Fragment>
     );
   }

@@ -10,6 +10,8 @@ export default class Winner extends React.Component {
   }
     
   render() {
+    const winner = this.state.gameover;
+    console.log(winner)
     return (
       
       <Fragment>
@@ -37,7 +39,7 @@ export default class Winner extends React.Component {
             <li className="bg__bubble bg__bubble9"></li>
           </ul>
         </div>
-        <h1>The winner was Player : {this.state.gameover}  </h1>
+        <h1>The winner is {winner}</h1>
       </Fragment>
     );
   }

@@ -15,7 +15,7 @@ export default class App extends Component {
     this.state = {
       player1: '',
       player2: '', 
-      gameover: false,
+      gameover: '',
     }
   }
   /**
@@ -39,7 +39,9 @@ export default class App extends Component {
    * @param {Bolean} gameover
    */
   handleGameOver(gameover) {
-    this.setState({gameover});
+    console.log(gameover.gameover);
+    
+    this.setState({gameover: gameover.gameover});
   }
 
   /**
@@ -92,10 +94,10 @@ export default class App extends Component {
     )
   }
 
-  winner() {
+  winner(props) {
     return (
       <div className="winner__container">
-        <Winner />
+        <Winner  gameover={props.gameover} />
         <div className="winner__links-container">
           <span className="winner__links">
             <Link replace to="/">Play again!</Link>
@@ -132,7 +134,7 @@ export default class App extends Component {
                 this.game(this.state)
               : <Redirect to="/" /> )
               }/>
-            <Route path="/winner" render={() => this.winner()}/>
+            <Route path="/winner" render={() => this.winner(this.state)}/>
             <Route path="/podium" render={() => this.podium()}/>
             <Route render={() => <h1>404 Page not found</h1>}/>
           </Switch>

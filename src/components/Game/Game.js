@@ -21,6 +21,7 @@ export default class Game extends React.Component {
 
   handleWinner(winner) {
     this.props.onGameOver({gameover: winner});
+    console.log(this.state.gameover);
     this.setState({winner: winner });
   }
 

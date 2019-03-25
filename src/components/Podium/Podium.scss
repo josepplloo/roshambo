@@ -1,12 +1,12 @@
 .podium__container {
+  align-items: center;
   background-color: #282cff;
-  min-height: 100vh;
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .podium__table {
@@ -26,8 +26,7 @@
     color: white;
     display: block;
     font: inherit;
-    text-decoration: none;
     padding: 10px 56px;
-
+    text-decoration: none;
   }
 }

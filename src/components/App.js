@@ -18,6 +18,7 @@ export default class App extends Component {
       gameover: '',
     }
   }
+
   /**
    * Set the player 1 in the state
    * @param {String} player1 
@@ -38,9 +39,7 @@ export default class App extends Component {
    * Set true if the game over
    * @param {Bolean} gameover
    */
-  handleGameOver(gameover) {
-    console.log(gameover.gameover);
-    
+  handleGameOver(gameover) {    
     this.setState({gameover: gameover.gameover});
   }
 
@@ -57,8 +56,9 @@ export default class App extends Component {
     return arePlayersReady ? true : false;
   }
 
-//Routing functions ***
-
+  /* 
+   * Routing functions *** 
+   */ 
   welcome() {
     return (
       <div className="welcome__container">
@@ -121,7 +121,6 @@ export default class App extends Component {
     )
   }
 
-//*** End of touting functions
 
   render() {
     return (
@@ -142,5 +141,4 @@ export default class App extends Component {
       </Router>
     );
   }
- 
 }

@@ -26,7 +26,6 @@ export default class Welcome extends React.Component {
     return (
       <Fragment>
         <h1 className="welcome__title">Welcome to the Game.</h1>
-        
           <input className="welcome__text" 
             type="text" 
             placeholder="Player 1" 
@@ -37,7 +36,6 @@ export default class Welcome extends React.Component {
             type="text" 
             placeholder="Player 2" 
             onChange={(event) => this.text2HandleChange(event)}/>
-        
       </Fragment>  
     )
   }

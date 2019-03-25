@@ -1,17 +1,17 @@
 .game__container {
-  background-color: #6C6394;
-  min-height: 100vh;
-  display: flex;
   align-items: center;
-  justify-content: space-evenly;
-  font-size: calc(10px + 2vmin);
+  background-color: #6C6394;
   color: white;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  justify-content: space-evenly;
+  min-height: 100vh;
 }
 
 .game__match {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
 }
 
@@ -30,19 +30,19 @@
 }
 
 .game__log {
-  min-width: 130px;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
+  min-width: 130px;
 }
 
 .game__links {
+  background-color: #0079C6;
   border: 2px solid transparent;
   border-radius: 4px;
-  background-color: #0079C6;
-  position: absolute;
   bottom: 40px;
+  position: absolute;
 
   &:hover {
     border: 2px solid black;
@@ -54,6 +54,5 @@
     font: inherit;
     text-decoration: none;
     padding: 10px 56px;
-
   }
 }

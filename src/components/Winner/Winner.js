@@ -1,5 +1,7 @@
 import React, {Fragment} from 'react'
+import axios from 'axios';
 import './Winner.scss'
+
 
 export default class Winner extends React.Component {
   constructor(props) {
@@ -9,11 +11,19 @@ export default class Winner extends React.Component {
     }
   }
     
+  componentDidMount() {
+    axios.post('http://127.0.0.1:3001/api/game',{
+      name: this.state.gameover,
+      due: new Date()
+    }).then(res => {
+      console.log(res);
+    })
+  }
+
   render() {
     const winner = this.state.gameover;
-    console.log(winner)
-    return (
-      
+    
+    return (  
       <Fragment>
         <div className="animation__background">
           <ul className="bg__bubbles--rigth">

@@ -15,13 +15,15 @@ export default class Game extends React.Component {
       history: [],
       gameover: props.gameover,
       winner:''
-
     }
   }
 
+  /**
+   * Set the winner in the state
+   * @param {String} winner 
+   */
   handleWinner(winner) {
     this.props.onGameOver({gameover: winner});
-    console.log(this.state.gameover);
     this.setState({winner: winner });
   }
 
@@ -30,25 +32,25 @@ export default class Game extends React.Component {
    * @param {Event} event 
    */
   handleMovement(event) {
-
     const { movements, matchResults, history } = this.state;
-    let { xIsNext } = this.state;
     movements.push(event.target.value);
+
+    let { xIsNext } = this.state;
     const isMatchCompleted = movements.length === 2
 
-    if(this.calculateTotalWinner(history)||matchResults.length > 4) {
+    // To end the game
+    if(this.calculateTotalWinner(history) || matchResults.length > 4) {
       this.handleWinner(this.calculateTotalWinner(history) || '💻' )
       return;
     }
 
-    if( isMatchCompleted ) {
+    if(isMatchCompleted) {
       const currentWinner = this.getWinner(movements);
       
       this.setState({
-        matchResults: matchResults.concat(currentWinner)
+        matchResults: matchResults.concat(currentWinner),
+        movements: []
       });
-
-     this.setState({movements: []});
     }
  
     this.setState({xIsNext: !xIsNext})
@@ -79,20 +81,16 @@ export default class Game extends React.Component {
     //return True, Player 1 wins!
     if( gameRules[movements[0]][movements[1]] ) {
       this.setState({
-        history: history.concat([
-          {
+        history: history.concat([{
             winner: player1,
-          }
-        ])
+          }])
       });
       return `${player1} Won the match`;
     } else {
       this.setState({
-        history: history.concat([
-          {
+        history: history.concat([{
             winner: player2,
-          }
-        ])
+          }])
       });
       return `${player2} Won the match`;
     }
@@ -104,7 +102,6 @@ export default class Game extends React.Component {
    * @returns If winner exist
    */
   calculateTotalWinner(hystoryOfGames) {
-    
     let countedNames = hystoryOfGames.reduce((allNames, {winner}) => { 
       if (winner in allNames) {
         allNames[winner]++;
@@ -125,8 +122,8 @@ export default class Game extends React.Component {
   }
   
   render() {
-    const player1 = this.props.player1;
-    const player2 = this.props.player2;
+    const player1 = this.state.player1;
+    const player2 = this.state.player2;
     const moves = this.state.moves;
     const history = this.state.history;
     const winnerExist = this.calculateTotalWinner(history);
@@ -134,16 +131,15 @@ export default class Game extends React.Component {
     const currentRound = matchResults.length;
 
     let allMatches = '';
+    let status;
 
     if (currentRound > 0) {
-       allMatches =  matchResults.map((result, index) => (
+       allMatches = matchResults.map((result, index) => (
         <li key={result+index}> {result} </li>
       ))
     } else {
        allMatches = <li>No matches yet.</li>
     }
-
-    let status;
 
     if (winnerExist) {
       status = `${winnerExist} is Champion, choose a move to continue..`;
@@ -173,9 +169,7 @@ export default class Game extends React.Component {
         </article>
         <aside className="game__log">
           <h3>Score Log</h3>
-          <ol>
-              {allMatches}
-          </ol>
+          <ol>{allMatches}</ol>
         </aside>
       </Fragment>
     );

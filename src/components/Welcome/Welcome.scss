@@ -1,3 +1,5 @@
+@import '../../shared/variables';
+
 .welcome__title {
   font: 1.9em sans-serif;
 }
@@ -5,8 +7,8 @@
 .welcome__container {
   align-content: center;
   align-items: center;
-  background-color: #282c34;
-  color: white;
+  background-color: $bg-primary-color;
+  color: $font-primary-color;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -18,7 +20,7 @@
 .welcome__text {  
   border: 2px solid transparent;
   border-radius: 4px;
-  color: #282c50;
+  color: $input-primary-color;
   font: inherit;
   height: 60px;
   margin: 20px;
@@ -42,7 +44,7 @@
 .welcome__links {
   border: 2px solid transparent;
   border-radius: 4px;
-  background-color: #0079C6;
+  background-color: $button-primary-color;
   margin: 0 5px;
   
   &:hover {
@@ -50,7 +52,7 @@
   }
 
   & a {
-    color: white;
+    color: $font-primary-color;
     display: block;
     font: inherit;
     padding: 5px 20px;

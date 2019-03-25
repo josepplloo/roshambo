@@ -1,7 +1,9 @@
+@import '../../shared/variables';
+
 .podium__container {
   align-items: center;
-  background-color: #282cff;
-  color: white;
+  background-color: $bg-quaternary-color;
+  color: $font-primary-color;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -16,14 +18,14 @@
 .podium__links {
   border: 2px solid transparent;
   border-radius: 4px;
-  background-color: #0079C6;
+  background-color: $button-primary-color;
 
   &:hover {
     border: 2px solid black;
   }
 
   & a {
-    color: white;
+    color: $font-primary-color;
     display: block;
     font: inherit;
     padding: 10px 56px;

@@ -1,3 +1,5 @@
+@import '../../shared/variables';
+
 .animation__background {
   background: transparent;
   height: 100%;
@@ -107,8 +109,8 @@
 
 .winner__container {
   align-items: center;
-  background-color: #282c90;
-  color: white;
+  background-color: $bg-tertiary-color;
+  color: $font-primary-color;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
@@ -124,7 +126,7 @@
 }
 
 .winner__links {
-  background-color: #0079C6;
+  background-color: $button-primary-color;
   border: 2px solid transparent;
   border-radius: 4px;
   margin: 0 5px;
@@ -133,7 +135,7 @@
   }
 
   & a {
-    color: white;
+    color: $font-primary-color;
     display: block;
     font: inherit;
     padding: 10px 20px;

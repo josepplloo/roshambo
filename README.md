@@ -2,6 +2,10 @@
 
 React version of  Scissors, Paper, Rock game.
 
+Also in [Docker 🐳](https://hub.docker.com/r/josepplloo/roshambo-web) `docker push josepplloo/roshambo-web`
+
+Deployed: https://josepplloo-roshambo-web.herokuapp.com/  
+
 ## Technologies Used
 
 This project was built using **React** ⚛️. **Axios** for *HTTP* requests

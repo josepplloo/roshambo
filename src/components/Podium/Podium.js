@@ -11,8 +11,8 @@ export default class Podium extends React.Component {
     }
   }
   
-  componentDidMount() {
-    axios.get(process.env.URL || 'http://localhost:3001/api/game')
+  componentDidMount() {    
+    axios.get(process.env.REACT_APP_URL || 'http://localhost:3001/api/game')
     .then((response) => {
 
       const namesArray = response.data.data.map( ({name}) => name)

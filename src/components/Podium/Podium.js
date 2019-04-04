@@ -12,7 +12,7 @@ export default class Podium extends React.Component {
   }
   
   componentDidMount() {
-    axios.get('http://localhost:3001/api/game')
+    axios.get(process.env.URL || 'http://localhost:3001/api/game')
     .then((response) => {
 
       const namesArray = response.data.data.map( ({name}) => name)

@@ -12,7 +12,7 @@ export default class Winner extends React.Component {
   }
     
   componentDidMount() {
-    axios.post(process.env.URL || 'http://127.0.0.1:3001/api/game',{
+    axios.post(process.env.REACT_APP_URL || 'http://127.0.0.1:3001/api/game',{
       name: this.state.gameover,
       due: new Date()
     }).then(res => {

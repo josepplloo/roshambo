@@ -5,3 +5,31 @@ $bg-tertiary-color: #282c90;
 $bg-quaternary-color: #282cff;
 $button-primary-color: #0079C6;
 $input-primary-color: #282c50;
+
+@mixin container($bg-color) {
+  align-items: center;
+  background-color: $bg-color;
+  color: $font-primary-color;
+  display: flex;
+  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+}
+
+@mixin links {
+  border: 2px solid transparent;
+  border-radius: 4px;
+  background-color: $button-primary-color;
+  margin: 5Px 5px;
+
+  &:hover {
+    border: 2px solid black;
+  }
+
+  & a {
+    color: $font-primary-color;
+    display: block;
+    font: inherit;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+}

@@ -1,14 +1,10 @@
 @import '../../shared/variables';
 
 .podium__container {
-  align-items: center;
-  background-color: $bg-quaternary-color;
-  color: $font-primary-color;
-  display: flex;
+  @include container($bg-quaternary-color);
+
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: 100vh;
 }
 
 .podium__table {
@@ -16,19 +12,5 @@
 }
 
 .podium__links {
-  border: 2px solid transparent;
-  border-radius: 4px;
-  background-color: $button-primary-color;
-
-  &:hover {
-    border: 2px solid black;
-  }
-
-  & a {
-    color: $font-primary-color;
-    display: block;
-    font: inherit;
-    padding: 10px 56px;
-    text-decoration: none;
-  }
+  @include links;
 }

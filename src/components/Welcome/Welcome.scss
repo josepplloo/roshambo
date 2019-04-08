@@ -5,15 +5,11 @@
 }
 
 .welcome__container {
+  @include container($bg-primary-color);
+
   align-content: center;
-  align-items: center;
-  background-color: $bg-primary-color;
-  color: $font-primary-color;
-  display: flex;
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: 100vh;
   min-width: 100vw;
 }
 
@@ -42,20 +38,5 @@
 }
 
 .welcome__links {
-  border: 2px solid transparent;
-  border-radius: 4px;
-  background-color: $button-primary-color;
-  margin: 0 5px;
-  
-  &:hover {
-    border: 2px solid black;
-  }
-
-  & a {
-    color: $font-primary-color;
-    display: block;
-    font: inherit;
-    padding: 5px 20px;
-    text-decoration: none;
-  }
+  @include links;
 }

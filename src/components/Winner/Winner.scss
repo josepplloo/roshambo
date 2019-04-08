@@ -108,14 +108,10 @@
 
 
 .winner__container {
-  align-items: center;
-  background-color: $bg-tertiary-color;
-  color: $font-primary-color;
-  display: flex;
+  @include container($bg-tertiary-color);
+
   flex-direction: column;
-  font-size: calc(10px + 2vmin);
   justify-content: center;
-  min-height: 100vh;
 }
 
 .winner__links-container {
@@ -126,19 +122,5 @@
 }
 
 .winner__links {
-  background-color: $button-primary-color;
-  border: 2px solid transparent;
-  border-radius: 4px;
-  margin: 0 5px;
-  &:hover {
-    border: 2px solid black;
-  }
-
-  & a {
-    color: $font-primary-color;
-    display: block;
-    font: inherit;
-    padding: 10px 20px;
-    text-decoration: none;
-  }
+  @include links;
 }

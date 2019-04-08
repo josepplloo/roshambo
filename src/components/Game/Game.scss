@@ -1,13 +1,10 @@
 @import '../../shared/variables';
 
 .game__container {
-  align-items: center;
+  @include container($bg-secondary-color);
+
   background-color: $bg-secondary-color;
-  color: $font-primary-color;
-  display: flex;
-  font-size: calc(10px + 2vmin);
   justify-content: space-evenly;
-  min-height: 100vh;
 }
 
 .game__match {
@@ -40,21 +37,8 @@
 }
 
 .game__links {
-  background-color: $button-primary-color;
-  border: 2px solid transparent;
-  border-radius: 4px;
+  @include links;
+  
   bottom: 40px;
   position: absolute;
-
-  &:hover {
-    border: 2px solid black;
-  }
-
-  & a {
-    color: $font-primary-color;
-    display: block;
-    font: inherit;
-    text-decoration: none;
-    padding: 10px 56px;
-  }
 }
